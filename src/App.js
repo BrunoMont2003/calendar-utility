@@ -2,7 +2,7 @@ import "./App.css";
 import UploadFile from "./components/UploadFile";
 function App() {
   const onFileChange = (file) => {
-    console.log(file);
+    // console.log(file);
   };
   return (
     <div className="bg-sky-50 min-h-screen p-5 flex justify-center items-center">

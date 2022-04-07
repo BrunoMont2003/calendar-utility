@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import uploadImg from "../assets/upload.png";
 import calendar from "../assets/calendar.png";
+import Swal from "sweetalert2";
 import "./style.css";
 
 const UploadFile = ({ onFileChange }) => {
@@ -11,9 +12,17 @@ const UploadFile = ({ onFileChange }) => {
   const onDrop = () => wrapperRef.current.classList.remove("opacity-60");
   const onFileDrop = (e) => {
     const newFile = e.target.files[0];
-    if (newFile) {
+    const type = newFile.type.split("/")[1];
+    if (newFile && type === "calendar") {
       setFile(newFile);
       onFileChange(newFile);
+    } else {
+      Swal.fire({
+        title: "Error!",
+        text: "Upload a claendar (.ics) file",
+        icon: "error",
+        confirmButtonText: "Cool",
+      });
     }
   };
   const fileRemove = () => {

@@ -3,6 +3,7 @@ import uploadImg from "../assets/upload.png";
 import calendar from "../assets/calendar.png";
 import Swal from "sweetalert2";
 import "./style.css";
+import { getCourses } from "../logic/index";
 
 const UploadFile = ({ onFileChange }) => {
   const wrapperRef = useRef(null);
@@ -16,10 +17,11 @@ const UploadFile = ({ onFileChange }) => {
     if (newFile && type === "calendar") {
       setFile(newFile);
       onFileChange(newFile);
+      readFile(newFile);
     } else {
       Swal.fire({
         title: "Error!",
-        text: "Upload a claendar (.ics) file",
+        text: "Upload a calendar (.ics) file",
         icon: "error",
         confirmButtonText: "Cool",
       });
@@ -27,6 +29,19 @@ const UploadFile = ({ onFileChange }) => {
   };
   const fileRemove = () => {
     setFile(null);
+  };
+  const readFile = (file) => {
+    const reader = new FileReader();
+    console.log(file);
+    reader.readAsText(file);
+    reader.onload = () => {
+      let ics = reader.result;
+      let array = getCourses(ics);
+      console.log(array);
+    };
+    reader.onerror = () => {
+      console.log(reader.error);
+    };
   };
   return (
     <>
@@ -43,6 +58,7 @@ const UploadFile = ({ onFileChange }) => {
         </div>
         <input
           type="file"
+          multiple={false}
           value=""
           className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
           onChange={(e) => {

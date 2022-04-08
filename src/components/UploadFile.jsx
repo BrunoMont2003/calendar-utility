@@ -3,7 +3,7 @@ import uploadImg from "../assets/upload.png";
 import calendar from "../assets/calendar.png";
 import Swal from "sweetalert2";
 import "./style.css";
-import { getCourses } from "../logic/index";
+import { getResult } from "../logic/index";
 
 const UploadFile = ({ onFileChange }) => {
   const wrapperRef = useRef(null);
@@ -36,7 +36,7 @@ const UploadFile = ({ onFileChange }) => {
     reader.readAsText(file);
     reader.onload = () => {
       let ics = reader.result;
-      let array = getCourses(ics);
+      let array = getResult(ics);
       console.log(array);
     };
     reader.onerror = () => {

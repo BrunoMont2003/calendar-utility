@@ -1,12 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef } from "react";
 import uploadImg from "../assets/upload.png";
 import calendar from "../assets/calendar.png";
 import Swal from "sweetalert2";
 import { getResult } from "../logic/index";
+import { MyContext } from "../context/MyContext";
 
 const UploadFile = ({ onFileChange, onFileDelete }) => {
   const wrapperRef = useRef(null);
-  const [file, setFile] = useState(null);
+  const { file, setFile } = useContext(MyContext);
   const onDragEnter = () => wrapperRef.current.classList.add("opacity-60");
   const onDragLeave = () => wrapperRef.current.classlist.remove("opacity-60");
   const onDrop = () => wrapperRef.current.classList.remove("opacity-60");

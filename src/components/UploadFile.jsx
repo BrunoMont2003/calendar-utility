@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import "./style.css";
 import { getResult } from "../logic/index";
 
-const UploadFile = ({ onFileChange }) => {
+const UploadFile = ({ onFileChange, onFileDelete }) => {
   const wrapperRef = useRef(null);
   const [file, setFile] = useState(null);
   const onDragEnter = () => wrapperRef.current.classList.add("opacity-60");
@@ -16,7 +16,6 @@ const UploadFile = ({ onFileChange }) => {
     const type = newFile.type.split("/")[1];
     if (newFile && type === "calendar") {
       setFile(newFile);
-      onFileChange(newFile);
       readFile(newFile);
     } else {
       Swal.fire({
@@ -29,15 +28,15 @@ const UploadFile = ({ onFileChange }) => {
   };
   const fileRemove = () => {
     setFile(null);
+    onFileDelete();
   };
   const readFile = (file) => {
     const reader = new FileReader();
-    console.log(file);
     reader.readAsText(file);
     reader.onload = () => {
       let ics = reader.result;
       let array = getResult(ics);
-      console.log(array);
+      onFileChange(array);
     };
     reader.onerror = () => {
       console.log(reader.error);

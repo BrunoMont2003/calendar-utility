@@ -1,10 +1,13 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-
+import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
-// import "flowbite";
 
 const container = document.getElementById("app");
 const root = createRoot(container);
-root.render(<App tab="home" />);
+root.render(
+  <BrowserRouter>
+    <App tab="home" />
+  </BrowserRouter>
+);

@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import uploadImg from "../assets/upload.png";
 import calendar from "../assets/calendar.png";
 import Swal from "sweetalert2";
-import "./style.css";
 import { getResult } from "../logic/index";
 
 const UploadFile = ({ onFileChange, onFileDelete }) => {

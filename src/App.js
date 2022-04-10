@@ -1,10 +1,15 @@
-import MainCard from "./components/MainCard";
-
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import ResultPage from "./pages/ResultPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import "./App.css";
 function App() {
   return (
-    <div className="bg-sky-50 min-h-screen p-5 flex justify-center items-center">
-      <MainCard />
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/result" element={<ResultPage />} />
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
   );
 }
 

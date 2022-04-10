@@ -68,3 +68,10 @@ export const getResult = (ics) => {
   });
   return newList;
 };
+export const getTotalTime = (events) => {
+  let time = 0;
+  events.forEach((event) => {
+    time += event.time;
+  });
+  return time;
+};

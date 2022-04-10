@@ -1,21 +1,24 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 import UploadFile from "./UploadFile";
+import { MyContext } from "../context/MyContext";
+import { getTotalTime } from "../logic";
 
 function MainCard() {
-  const [result, setResult] = useState(null);
-  const [click, setClick] = useState(false);
+  const { result, setResult, setTime } = useContext(MyContext);
+  const push = useNavigate();
   const onFileChange = (result) => {
     setResult(result);
+    let myTime = getTotalTime(result);
+    setTime(myTime);
   };
   const onFileDelete = () => {
-    setClick(false);
     setResult(null);
   };
   const buttonOnClick = () => {
     if (result) {
-      console.log(result);
-      setClick(true);
+      push("/result");
     }
   };
   return (

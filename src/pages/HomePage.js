@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../components/Footer";
 import Home from "../components/Home";
 import MainCard from "../components/MainCard";
 
@@ -12,6 +13,7 @@ const HomePage = () => {
       >
         <MainCard />
       </div>
+      <Footer />
     </>
   );
 };

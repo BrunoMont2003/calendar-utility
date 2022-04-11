@@ -66,7 +66,7 @@ const UploadFile = ({ onFileChange, onFileDelete }) => {
         />
       </div>
       {file && (
-        <div className="flex bg-blue-100 my-5 px-5 py-3 rounded-lg items-center relative file">
+        <div className="overflow-hidden flex bg-blue-100 my-5 px-5 py-3 rounded-lg items-center relative file ">
           <img src={calendar} alt="file" className="w-16" />
           <div className="ml-5">
             <p className="">{file.name}</p>

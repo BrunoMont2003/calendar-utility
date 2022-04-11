@@ -6,7 +6,10 @@ const HomePage = () => {
   return (
     <>
       <Home />
-      <div className="bg-sky-50 min-h-screen p-5 flex justify-center items-center">
+      <div
+        id="tool"
+        className="bg-sky-50 min-h-screen p-5 flex justify-center items-center"
+      >
         <MainCard />
       </div>
     </>

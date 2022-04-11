@@ -5,7 +5,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import calendar from "../assets/google-calendar.png";
-
+import { Link, animateScroll as scroll } from "react-scroll";
 const Home = () => {
   return (
     <div className="home-container min-h-screen p-5 sm_px-8 md:px-20 text-white flex flex-col md:justify-center items-center">
@@ -17,11 +17,17 @@ const Home = () => {
           Find out the total work time registered in your calendar.
         </p>
         <div className="my-5">
-          <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+          <Link
+            to="tool"
+            spy={true}
+            smooth={true}
+            duration={500}
+            className="cursor-pointer relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800"
+          >
             <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-slate-900 text-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
               Get Started
             </span>
-          </button>
+          </Link>
         </div>
       </div>
 

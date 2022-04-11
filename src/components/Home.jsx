@@ -4,11 +4,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import calendar from "../assets/google-calendar.png";
 
 const Home = () => {
   return (
-    <div className="bg-slate-900 min-h-screen p-5 sm_px-8 md:px-20 text-white flex flex-col md:justify-center items-center">
-      <div className="px-5 py-10 flex items-center justify-center flex-col shadow">
+    <div className="home-container min-h-screen p-5 sm_px-8 md:px-20 text-white flex flex-col md:justify-center items-center">
+      <div className="px-5 pt-10 flex items-center justify-center flex-col shadow">
         <h1 className=" text-4xl border-b-2 pb-2 my-5 w-fit font-bold">
           Calendar Tool
         </h1>
@@ -23,7 +24,8 @@ const Home = () => {
           </button>
         </div>
       </div>
-      <div className="px-5 py-10 flex items-center justify-center flex-col  rounded-md">
+
+      <div className="px-5 pt-10 flex items-center justify-center flex-col  rounded-md">
         <h2 className="text-xl mb-5 font-medium ">
           Export your Google Calendar
         </h2>
@@ -77,6 +79,9 @@ const Home = () => {
             </a>
           </li>
         </ol>
+      </div>
+      <div className="mb-10 bg-white h-fit rounded-full">
+        <img src={calendar} alt="calendar" className="h-24" />
       </div>
     </div>
   );

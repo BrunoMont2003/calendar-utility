@@ -13,3 +13,6 @@
 .file:hover .delete-file {
   opacity: 1 !important;
 }
+.home-container {
+  background-image: url("./assets/micro_carbon.png");
+}

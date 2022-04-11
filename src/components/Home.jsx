@@ -5,7 +5,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import calendar from "../assets/google-calendar.png";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-scroll";
 const Home = () => {
   return (
     <div className="home-container min-h-screen p-5 sm_px-8 md:px-20 text-white flex flex-col md:justify-center items-center">

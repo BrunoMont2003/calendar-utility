@@ -31,7 +31,7 @@ const Summary = ({ events, file, time }) => {
     file &&
     events &&
     events.length && (
-      <div className="grid w-full grid-cols-2 md:grid-cols-3 sm:px-10 md:px-16 lg:px-44 xl:px-52 gap-5">
+      <div className="grid w-full grid-cols-2 md:grid-cols-3 sm:px-10 md:px-16 lg:px-44 xl:px-52 gap-5 overflow-hidden">
         <h1 className="text-3xl font-bold col-span-full text-center">
           {file.name}
         </h1>

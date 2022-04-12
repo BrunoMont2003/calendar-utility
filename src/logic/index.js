@@ -24,9 +24,19 @@ function getEvents(ics) {
         }
       }
     });
-    let difference = getDifference(oEvent.DTSTART, oEvent.DTEND);
-    oEvent.difference_in_minutes = difference;
-    arrayEventos.push(oEvent);
+    let includes =
+      arrayEventos.filter(
+        (e) =>
+          e.DTEND === oEvent.DTEND &&
+          e.DTSTART === oEvent.DTSTART &&
+          e.SUMMARY === oEvent.SUMMARY
+      ).length > 0;
+    console.log(includes);
+    if (!includes) {
+      let difference = getDifference(oEvent.DTSTART, oEvent.DTEND);
+      oEvent.difference_in_minutes = difference;
+      arrayEventos.push(oEvent);
+    }
   });
   return arrayEventos;
 }

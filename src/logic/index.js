@@ -31,7 +31,6 @@ function getEvents(ics) {
           e.DTSTART === oEvent.DTSTART &&
           e.SUMMARY === oEvent.SUMMARY
       ).length > 0;
-    console.log(includes);
     if (!includes) {
       let difference = getDifference(oEvent.DTSTART, oEvent.DTEND);
       oEvent.difference_in_minutes = difference;
